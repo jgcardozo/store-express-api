@@ -1,0 +1,2 @@
+# https://www.returngis.net/2023/07/generar-datos-de-prueba-con-faker-js-en-mi-api-con-node-js-y-express/
+npm install @faker-js/faker --save-dev
