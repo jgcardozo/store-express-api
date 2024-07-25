@@ -31,17 +31,20 @@ Content-Type: application/json
     "image": "http://"
 }
 
-### deleteTask
-# @name delTask
-DELETE {{baseUrl}}/tasks/a2200a42-7104-4ac3-af4b-2af4e4d95199
-
-### update Task
-# @name updateTask
-PATCH {{baseUrl}}/tasks/1
+### updateProduct
+# @name updateProduct
+PATCH {{baseUrl}}/products/1212
 Content-Type: application/json
 
 {
-    "status" : "done"
+    "name" : "adidas short"
     //"title":"lavardoneropa",
     //"description": "he bañado a oreo a las 9:25"
 }
+
+
+
+### deleteProduct
+# @name deleteProduct
+DELETE {{baseUrl}}/products/1234
+
