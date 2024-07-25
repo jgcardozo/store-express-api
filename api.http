@@ -1,12 +1,16 @@
- @baseUrl = http://localhost:3000
+ @baseUrl = http://localhost:3000/api/v1
 
 ### getAProduct /filter
 # @name getAProduct
 GET {{baseUrl}}/products/filter
 
 ### getProducts
-# @name getProducts  ?size=n
-GET {{baseUrl}}/products?size=2
+# @name getProducts
+GET {{baseUrl}}/products/size=2
+
+### getAllProducts
+# @name getAllProducts
+GET {{baseUrl}}/products
 
 ### getCatProd
 # @name getCatProd
@@ -16,14 +20,15 @@ GET {{baseUrl}}/categories/8/product/209
 # @name getUsers
 GET {{baseUrl}}/users?limit10&offset=200
 
-### post createTask
-# @name createTask
-POST {{baseUrl}}/tasks
+### post createProduct
+# @name createProduct
+POST {{baseUrl}}/products
 Content-Type: application/json
 
 {
-    "title":"bañar al perrro",
-    "description":"bañarlo a las 8am 222"
+    "name": "camiseta real-madrid",
+    "price": 222,
+    "image": "http://"
 }
 
 ### deleteTask
