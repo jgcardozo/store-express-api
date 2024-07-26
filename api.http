@@ -4,13 +4,14 @@
 # @name getAProduct
 GET {{baseUrl}}/products/filter
 
-### getProducts
-# @name getProducts
-GET {{baseUrl}}/products/size=2
-
 ### getAllProducts
 # @name getAllProducts
 GET {{baseUrl}}/products
+
+### getAProduct
+# @name getAProduct
+GET {{baseUrl}}/products/d25fb292-409a-4472-bf3a-83c158ba584f
+### size=2
 
 ### getCatProd
 # @name getCatProd
@@ -33,7 +34,7 @@ Content-Type: application/json
 
 ### updateProduct
 # @name updateProduct
-PATCH {{baseUrl}}/products/1212
+PATCH {{baseUrl}}/products/946aeff6-c5e7-4ce4-a628-bdc840e57d2a
 Content-Type: application/json
 
 {
@@ -42,9 +43,7 @@ Content-Type: application/json
     //"description": "he bañado a oreo a las 9:25"
 }
 
-
-
 ### deleteProduct
 # @name deleteProduct
-DELETE {{baseUrl}}/products/1234
+DELETE {{baseUrl}}/products/58c46fc7-66cf-4496-b597-394b583d802c-jjjj
 
