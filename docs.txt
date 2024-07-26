@@ -1,2 +1,89 @@
 # https://www.returngis.net/2023/07/generar-datos-de-prueba-con-faker-js-en-mi-api-con-node-js-y-express/
 npm install @faker-js/faker --save-dev
+
+
+implementar el patrón singleton
+
+Products Service
+
+class ProductsService {
+  static _productsServiceInstance = null;
+
+  static getInstance() {
+    if (ProductsService._productsServiceInstance === null) {
+      ProductsService._productsServiceInstance = new ProductsService();
+    }
+    return ProductsService._productsServiceInstance;
+  }
+
+
+
+Products.router
+
+const express = require('express');
+const ProductsService = require('../services/Products.service');
+
+const router = express.Router();
+
+//* GET all products
+router.get('/', getAll);
+
+//* GET product by ID
+router.get('/:id', getOne);
+
+//! ADD new product
+router.post('/', create);
+
+//* UPDATE partial product
+router.patch('/:id', updateProduct);
+
+//! DELETE product
+router.delete('/:id', deleteProduct);
+
+
+//* Internal Functions
+async function getAll(req, res) {
+  const productsService = await ProductsService.getInstance();
+  const products = await productsService.find();
+  res.json(products);
+}
+
+async function getOne(req, res) {
+  const productsService = await ProductsService.getInstance();
+
+  const { id } = req.params;
+  const product = await productsService.findOne(id);
+
+  res.json(product);
+}
+
+async function create(req, res) {
+  const productsService = await ProductsService.getInstance();
+
+  const product = await productsService.create(req.body);
+
+  res.json(product);
+}
+
+async function updateProduct(req, res) {
+  const productsService = await ProductsService.getInstance();
+
+  const { id } = req.params;
+  const data = req.body
+
+  const answer = await productsService.update(id, data);
+
+  res.json(answer);
+}
+
+async function deleteProduct(req, res) {
+  const productsService = await ProductsService.getInstance();
+
+  const { id } = req.params;
+
+  const answer = await productsService.delete(id);
+
+  res.json(answer);
+}
+
+module.exports = router;
