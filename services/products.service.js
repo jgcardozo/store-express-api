@@ -53,7 +53,7 @@ class ProductServices {
   async update(id, changes) {
     const index = this.products.findIndex((item) => item.id === id);
     if (index === -1) {
-      throw boom.notFound('productico no encontrado');
+      throw boom.notFound('productico no encontrado: prodService.update()');
     }
     const prod = this.products[index];
     this.products[index] = {

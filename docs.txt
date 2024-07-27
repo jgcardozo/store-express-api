@@ -11,6 +11,9 @@ https://hapi.dev/tutorials/?lang=en_US
 # 9-validation with joi
 https://joi.dev/api/?v=17.13.3
 
+#10-cors
+https://expressjs.com/en/resources/middleware/cors.html
+
 
 #callback
 function readFile(callback) {
