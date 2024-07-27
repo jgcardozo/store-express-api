@@ -10,16 +10,8 @@ GET {{baseUrl}}/products
 
 ### getAProduct
 # @name getAProduct
-GET {{baseUrl}}/products/14fb9d3f-aab7-472f-8eae-21948c0958b3
+GET {{baseUrl}}/products/122
 ### size=2
-
-### getCatProd
-# @name getCatProd
-GET {{baseUrl}}/categories/8/product/209
-
-### getUsers
-# @name getUsers
-GET {{baseUrl}}/users?limit10&offset=200
 
 ### post createProduct
 # @name createProduct
@@ -27,18 +19,18 @@ POST {{baseUrl}}/products
 Content-Type: application/json
 
 {
-    "name": "camiseta real-madrid",
-    "price": 222,
-    "image": "http://"
+    "name": "camisa real madrid",
+    "price": 10,
+    "image": "https://picsum.photos/seed/YLZvIVfnu/640/480"
 }
 
 ### updateProduct
 # @name updateProduct
-PATCH {{baseUrl}}/products/946aeff6-c5e7-4ce4-a628-bdc840e57d2a
+PATCH {{baseUrl}}/products/8917762b-5500-4bbe-b785-9a80da1f4beb
 Content-Type: application/json
 
 {
-    "name" : "adidas short"
+    "name" :"adidas short"
     //"title":"lavardoneropa",
     //"description": "he bañado a oreo a las 9:25"
 }
@@ -46,4 +38,42 @@ Content-Type: application/json
 ### deleteProduct
 # @name deleteProduct
 DELETE {{baseUrl}}/products/58c46fc7-66cf-4496-b597-394b583d802c-jjjj
+
+
+
+
+### getCatProd ######################################################
+# @name getCatProd
+GET {{baseUrl}}/categories/8/product/209
+
+### getUsers
+# @name getUsers
+GET {{baseUrl}}/users?limit10&offset=200
+
+### post to login--
+# @name login
+POST {{baseUrl}}auth/login
+Content-Type: application/json
+
+{
+    "email": "zboncak.birdie@example.org",
+    "password": "pass12345678"
+}
+
+###
+
+@accessToken = {{ login.response.body.access_token }}
+
+
+### see user profile
+# @name meprofile
+POST {{baseUrl}}auth/me
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+### user logout
+# @name logout
+POST {{baseUrl}}auth/logout
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
 

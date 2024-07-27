@@ -8,6 +8,30 @@ npm install @faker-js/faker --save-dev
 https://hapi.dev/tutorials/?lang=en_US
 
 
+# 9-validation with joi
+https://joi.dev/api/?v=17.13.3
+
+
+#callback
+function readFile(callback) {
+  console.log("Leyendo el archivo...");
+  setTimeout(() => {
+    console.log("Archivo leído.");
+    callback();  // Llama al callback una vez que la tarea ha terminado
+  }, 1000);  // Simula que la lectura del archivo toma 1 segundo
+}
+
+// Función callback que se ejecutará después de leer el archivo
+function afterReadFile() {
+  console.log("Ahora que el archivo ha sido leído, hago otra cosa.");
+}
+
+// Llamada a readFile con afterReadFile como callback
+readFile(afterReadFile);
+
+
+
+
 implementar el patrón singleton
 
 Products Service
