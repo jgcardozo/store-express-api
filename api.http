@@ -10,7 +10,7 @@ GET {{baseUrl}}/products
 
 ### getAProduct
 # @name getAProduct
-GET {{baseUrl}}/products/d25fb292-409a-4472-bf3a-83c158ba584f
+GET {{baseUrl}}/products/14fb9d3f-aab7-472f-8eae-21948c0958b3
 ### size=2
 
 ### getCatProd

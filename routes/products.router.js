@@ -12,10 +12,14 @@ router.get('/filter', (req, res) => {
   res.send('ruta products/filter');
 });
 
-router.get('/:id', async (req, res) => {
-  const id = req.params.id;
-  const product = await service.findOne(id);
-  res.json(product);
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const product = await service.findOne(id);
+    res.json(product);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post('/', async (req, res) => {
@@ -25,11 +29,15 @@ router.post('/', async (req, res) => {
   //res.json({ message: 'created', data: body });
 });
 
-router.patch('/:id', async (req, res) => {
-  const { id } = req.params;
-  const body = req.body;
-  const product = await service.update(id, body);
-  res.json(product);
+router.patch('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const body = req.body;
+    const product = await service.update(id, body);
+    res.json(product);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.delete('/:id', async (req, res) => {

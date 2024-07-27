@@ -1,5 +1,11 @@
+# curso de backend con node.js API-REST con express.js
+https://platzi.com/home/clases/2485-backend-nodejs/41759-manejo-de-errores-con-boom/
+
 # https://www.returngis.net/2023/07/generar-datos-de-prueba-con-faker-js-en-mi-api-con-node-js-y-express/
 npm install @faker-js/faker --save-dev
+
+# boom docs , errorHandler
+https://hapi.dev/tutorials/?lang=en_US
 
 
 implementar el patrón singleton
